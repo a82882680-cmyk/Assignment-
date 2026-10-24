@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+  ASSIGNMENT 17
+  Question: Build a job-application style form using every input type covered.
+  Name: Anshika Patel | Course: BCA (AI), Invertis University
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Assignment 17 - Internship application form of Anshika Patel using every HTML input type.">
+  <title>Assignment 17 - Internship Application</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 760px; margin: auto; padding: 16px; color: #222; }
+    h1 { background: #1f3a5f; color: #fff; padding: 14px; border-radius: 6px; }
+    .question { background: #eef3fa; border-left: 4px solid #1f3a5f; padding: 10px 14px; border-radius: 4px; }
+    fieldset { margin: 18px 0; padding: 10px 16px; border: 2px solid #1f3a5f; border-radius: 6px; }
+    legend { font-weight: bold; color: #1f3a5f; }
+    label { display: block; margin: 10px 0; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="url"],
+    input[type="password"], input[type="search"], select, textarea { width: 100%; padding: 6px; box-sizing: border-box; }
+    .inline label { display: inline-block; margin-right: 16px; }
+    input[type="submit"], input[type="reset"], input[type="button"] { padding: 8px 18px; margin-right: 8px; cursor: pointer; }
+  </style>
+</head>
+
+<body>
+  <h1>Assignment 17: Internship Application - Junior Front-End Developer</h1>
+
+  <p class="question">
+    <strong>Question:</strong> Build a job-application style form using every input type covered.
+  </p>
+
+  <form action="#" method="post" enctype="multipart/form-data">
+
+    <fieldset>
+      <legend>Personal Details</legend>
+
+      <label for="fullname">Full name *
+        <input type="text" id="fullname" name="fullname" value="Anshika Patel" required>
+      </label>
+
+      <label for="email">Email *
+        <input type="email" id="email" name="email" value="a82882680@gmail.com" required>
+      </label>
+
+      <label for="phone">Phone
+        <input type="tel" id="phone" name="phone" value="9876543210" pattern="[0-9]{10}">
+      </label>
+
+      <label for="dob">Date of birth
+        <input type="date" id="dob" name="dob" value="2007-01-01">
+      </label>
+
+      <label for="website">Portfolio / GitHub link
+        <input type="url" id="website" name="website" value="https://github.com/a82882680-cmyk">
+      </label>
+
+      <label for="password">Create password * (minimum 8 characters)
+        <input type="password" id="password" name="password" value="Student@2026" minlength="8" required>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Job Details</legend>
+
+      <label for="position">Position
+        <select id="position" name="position">
+          <option value="frontend" selected>Junior Front-End Developer</option>
+          <option value="ui">UI / UX Intern</option>
+          <option value="ai">AI Research Intern</option>
+          <option value="qa">QA Tester</option>
+        </select>
+      </label>
+
+      <label for="joindate">Earliest joining date
+        <input type="date" id="joindate" name="joindate" value="2026-12-15">
+      </label>
+
+      <label for="slot">Interview slot
+        <input type="datetime-local" id="slot" name="slot" value="2026-11-10T15:00">
+      </label>
+
+      <label for="startmonth">Preferred start month
+        <input type="month" id="startmonth" name="startmonth" value="2027-01">
+      </label>
+
+      <label for="startweek">Preferred start week
+        <input type="week" id="startweek" name="startweek" value="2027-W02">
+      </label>
+
+      <label for="calltime">Best time for a call
+        <input type="time" id="calltime" name="calltime" value="18:00">
+      </label>
+
+      <label for="exp">Years of experience (projects and hackathons)
+        <input type="number" id="exp" name="exp" min="0" max="5" value="1">
+      </label>
+
+      <label for="stipend">Expected stipend (Rs. per month)
+        <input type="range" id="stipend" name="stipend" min="5000" max="30000" step="1000" value="8000"
+          oninput="stipendOut.value = this.value">
+        <output id="stipendOut">8000</output>
+      </label>
+
+      <label for="colour">Favourite colour
+        <input type="color" id="colour" name="colour" value="#6a4c93">
+      </label>
+
+      <label for="skill">Top skill (type or pick)
+        <input list="skillList" id="skill" name="skill" value="HTML">
+        <datalist id="skillList">
+          <option value="HTML"></option>
+          <option value="CSS"></option>
+          <option value="JavaScript"></option>
+          <option value="React.js"></option>
+          <option value="Java"></option>
+          <option value="Git"></option>
+        </datalist>
+      </label>
+
+      <label for="search">Search company policy
+        <input type="search" id="search" name="q" value="internship stipend and working hours">
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Work Mode</legend>
+      <div class="inline">
+        <label><input type="radio" name="mode" value="onsite"> On-site</label>
+        <label><input type="radio" name="mode" value="remote"> Remote</label>
+        <label><input type="radio" name="mode" value="hybrid" checked> Hybrid</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Technologies I Know</legend>
+      <div class="inline">
+        <label><input type="checkbox" name="tech" value="html" checked> HTML</label>
+        <label><input type="checkbox" name="tech" value="css" checked> CSS</label>
+        <label><input type="checkbox" name="tech" value="js" checked> JavaScript</label>
+        <label><input type="checkbox" name="tech" value="react" checked> React.js</label>
+        <label><input type="checkbox" name="tech" value="java" checked> Java</label>
+        <label><input type="checkbox" name="tech" value="git" checked> Git and GitHub</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Documents and Cover Letter</legend>
+
+      <label for="resume">Upload resume (PDF)
+        <input type="file" id="resume" name="resume" accept=".pdf">
+      </label>
+
+      <label for="cover">Cover letter (maximum 500 characters)
+        <textarea id="cover" name="cover" rows="6" maxlength="500">I am a first-year BCA Artificial Intelligence student at Invertis University. I enjoy HTML, CSS, JavaScript and React.js, and I have built a responsive e-commerce interface. I also helped my team clear the first round of Smart India Hackathon with a cybersecurity idea. I am eager to learn on the job and contribute with research, teamwork and clean, accessible design.</textarea>
+      </label>
+    </fieldset>
+
+    <input type="hidden" name="source" value="student-portfolio-page">
+
+    <label><input type="checkbox" name="agree" checked required> I confirm that the information given is correct *</label>
+
+    <input type="submit" value="Apply Now">
+    <input type="reset" value="Reset">
+    <input type="button" value="Print" onclick="window.print()">
+  </form>
+</body>
+
+</html>

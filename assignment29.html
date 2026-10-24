@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+  ASSIGNMENT 29
+  Question: Style a landing-page hero section using position and z-index.
+  Name: Anshika Patel | Course: BCA (AI), Invertis University
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Landing-page hero section of Anshika Patel built with position and z-index.">
+  <meta name="author" content="Anshika Patel">
+  <title>Assignment 29 - Hero Section (position &amp; z-index)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+    }
+
+    .topbar {
+      background: #0d2240;
+      color: #fff;
+      padding: 10px 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .question {
+      background: #eef3fa;
+      border-left: 4px solid #1f3a5f;
+      padding: 10px 14px;
+      margin: 12px;
+      border-radius: 4px;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 500px;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* layer 0 - background image */
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* layer 1 - dark overlay */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, .65), rgba(0, 0, 0, .25));
+      z-index: 1;
+    }
+
+    /* layer 3 - nav stays above everything */
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+
+    /* layer 2 - centred text */
+    .hero__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      width: min(90%, 700px);
+    }
+
+    .hero__content h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero__content p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff6b35;
+      color: #fff;
+      padding: .85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* layer 3 - floating badge pinned bottom-right */
+    .badge {
+      position: absolute;
+      right: 2rem;
+      bottom: 2rem;
+      z-index: 3;
+      background: #fff;
+      color: #222;
+      padding: .75rem 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+    }
+
+    .badge strong {
+      display: block;
+      font-size: 1.3rem;
+    }
+
+    /* fixed "back to top" button shows position: fixed */
+    .fab {
+      position: fixed;
+      right: 1rem;
+      top: 50%;
+      z-index: 10;
+      background: #fff;
+      color: #222;
+      padding: .4rem .7rem;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    section.next {
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section.next ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    section.next li {
+      margin-bottom: .5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    Assignment 29 | Name: Anshika Patel | BCA (AI), Invertis University
+  </div>
+
+  <p class="question">
+    <strong>Question:</strong> Style a landing-page hero section using position and z-index.
+  </p>
+
+  <header class="hero">
+    <img class="hero__bg" src="https://picsum.photos/id/1036/1600/900" alt="Snowy mountain range under a pale sky">
+    <nav class="nav">
+      <span class="logo">Anshika Patel</span>
+      <div>
+        <a href="#next">About</a>
+        <a href="https://github.com/a82882680-cmyk">GitHub</a>
+        <a href="mailto:a82882680@gmail.com">Contact</a>
+      </div>
+    </nav>
+    <div class="hero__content">
+      <h1>Building Smart, Human-Friendly Technology</h1>
+      <p>First-year BCA (AI) student exploring artificial intelligence, cybersecurity and user-centred design.</p>
+      <a class="btn" href="#next">Know more about me</a>
+    </div>
+    <div class="badge"><strong>&#9733; SIH First Round</strong>Cleared with my team</div>
+  </header>
+
+  <a class="fab" href="#" aria-label="Back to top">&#8593;</a>
+
+  <section class="next" id="next">
+    <h2>About Me</h2>
+    <p>I am Anshika Patel from Bareilly, studying BCA in Artificial Intelligence at Invertis University.
+      Scroll content goes here - the round button on the right stays fixed.</p>
+    <ul>
+      <li>Skills: HTML5, CSS3, JavaScript, Java, React.js</li>
+      <li>Projects: Smart India Hackathon, AIORI Hackathon, E-commerce frontend</li>
+      <li>Email: <a href="mailto:a82882680@gmail.com">a82882680@gmail.com</a></li>
+    </ul>
+  </section>
+</body>
+
+</html>

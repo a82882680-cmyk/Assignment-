@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Anshika Patel - BCA (AI) student at Invertis University. Semantic HTML5 version of my college page, Assignment 14.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anshika Patel | BCA AI Student, Invertis University</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: auto; padding: 16px; color: #222; }
+    header, footer { background: #1f3a5f; color: #fff; padding: 16px; border-radius: 6px; }
+    header a, footer a { color: #ffd966; }
+    nav a { margin-right: 12px; }
+    article, aside { border-left: 4px solid #1f3a5f; padding-left: 14px; margin: 24px 0; }
+    img { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <!--
+  ASSIGNMENT 14: Improving an earlier page with semantic tags
+
+  BEFORE (Assignment 13, generic divs):
+    <div class="top">  <div class="menu">  <div class="content">
+    <div class="box">  <div class="bottom">
+
+  AFTER (this file):
+    div.top     -> <header>
+    div.menu    -> <nav>
+    div.content -> <main>
+    div.box     -> <article> / <section>
+    div.bottom  -> <footer>
+    side notes  -> <aside>
+    dates       -> <time>
+    contact     -> <address>
+    important   -> <strong>
+    skills list -> <dl> (term + description)
+
+  Why: screen readers understand the page better, search engines
+  read it better, and the code is easier to maintain.
+  -->
+
+  <header>
+    <h1>Anshika Patel</h1>
+    <p>BCA (Artificial Intelligence) | Invertis University</p>
+    <nav aria-label="Main navigation">
+      <a href="#profile">Profile</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#interests">Interests</a>
+    </nav>
+  </header>
+
+  <main>
+    <article id="profile">
+      <h2>Profile</h2>
+      <p>
+        I am a first-year <strong>BCA Artificial Intelligence</strong> student who is
+        curious about how intelligent systems work, how people think, and how good
+        design can turn complex ideas into useful experiences. I want to build
+        solutions that are technically sound and shaped around real human needs.
+      </p>
+      <figure>
+        <img src="https://picsum.photos/id/1015/600/300" width="600" height="300"
+          alt="Green campus with a walking path">
+        <figcaption>Campus life - my learning journey begins here</figcaption>
+      </figure>
+    </article>
+
+    <article id="education">
+      <h2>Education</h2>
+      <section>
+        <h3>Bachelor of Computer Applications (AI)</h3>
+        <p>Invertis University</p>
+        <p>
+          <time datetime="2026">2026</time> to
+          <time datetime="2029">2029 (expected)</time> | 3-year programme
+        </p>
+      </section>
+      <section>
+        <h3>Subjects this year</h3>
+        <ul>
+          <li>Java</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </section>
+    </article>
+
+    <article id="skills">
+      <h2>Technical Skills</h2>
+      <dl>
+        <dt>Programming</dt>
+        <dd>Java (foundational knowledge)</dd>
+
+        <dt>Web Technologies</dt>
+        <dd>HTML5, CSS3, JavaScript fundamentals, React.js</dd>
+
+        <dt>AI and Cybersecurity</dt>
+        <dd>Introductory AI-based threat detection, IP traffic analysis, packet inspection concepts</dd>
+
+        <dt>Tools</dt>
+        <dd>GitHub, Overleaf, Notion</dd>
+
+        <dt>Professional Skills</dt>
+        <dd>Research, feasibility analysis, presentation, collaboration, communication, problem-solving</dd>
+      </dl>
+    </article>
+
+    <article id="projects">
+      <h2>Hackathons and Projects</h2>
+
+      <section>
+        <h3>AI-Based Detection of Cyber Threats in Unidirectional IP Traffic</h3>
+        <p><strong>Smart India Hackathon (SIH)</strong> | First round cleared | Team project</p>
+        <ul>
+          <li>Did research, information gathering and feasibility analysis.</li>
+          <li>Coordinated the team and created the pitch deck explaining the problem, solution and technical approach.</li>
+          <li>Explored a two-stage design: Tunnel A takes in traffic and Tunnel B does AI-assisted packet analysis.</li>
+          <li>Studied packet size and quantity to spot abnormal traffic without depending only on encrypted content.</li>
+          <li>Explored Ollama and local LLMs to explain threats in human-readable language.</li>
+        </ul>
+        <p>Technologies explored: Scapy, Ollama, local LLMs, React.js, HTML5, CSS3, JavaScript.</p>
+      </section>
+
+      <section>
+        <h3>Federated Traffic-Flow Prediction with Communication-Cost Evaluation</h3>
+        <p><strong>AIORI Hackathon</strong> | PS-003 | Participating</p>
+        <p>Exploring federated learning and the balance between collaborative learning and communication efficiency.</p>
+      </section>
+
+      <section>
+        <h3>E-commerce Frontend Interface</h3>
+        <p>
+          Designed a responsive, user-friendly interface using modular React.js
+          components, with clean design and accessible navigation for different screen sizes.
+        </p>
+      </section>
+
+      <section>
+        <h3>The Ultimate Planner (Notion Template)</h3>
+        <p>Independent project | In development</p>
+        <p>An all-in-one planner for tasks, budgets, goals, calendars and routines, focused on easy-to-use dashboards.</p>
+      </section>
+    </article>
+
+    <aside id="interests">
+      <h2>Areas of Interest</h2>
+      <p>Artificial Intelligence, Cybersecurity, Psychology and Consumer Behaviour, Business Strategy, User-Centred Design.</p>
+      <p>Page updated on <time datetime="2026-10-24">24 October 2026</time>.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Anshika Patel</p>
+    <address>
+      Email: <a href="mailto:a82882680@gmail.com">a82882680@gmail.com</a>
+    </address>
+  </footer>
+</body>
+</html>

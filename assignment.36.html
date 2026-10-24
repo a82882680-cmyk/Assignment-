@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A responsive photo gallery built using CSS Grid.">
+    <title>My Photo Gallery</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 180px;
+            gap: 12px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery figure {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #333;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery figure:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            font-size: 14px;
+        }
+
+        .wide {
+            grid-column: span 2;
+        }
+
+        .tall {
+            grid-row: span 2;
+        }
+
+        .big {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        footer {
+            text-align: center;
+            color: #aaa;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 220px;
+            }
+
+            .wide,
+            .big {
+                grid-column: auto;
+            }
+
+            .tall {
+                grid-row: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Photo Gallery</h1>
+        <p class="subtitle">Discover the beauty of nature</p>
+    </header>
+
+    <main>
+        <div class="gallery">
+
+            <figure class="big">
+                <img src="https://picsum.photos/id/1015/800/800"
+                    alt="River flowing through a green mountain valley">
+                <figcaption>Beautiful River Valley</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://picsum.photos/id/1016/400/400"
+                    alt="Mountain landscape">
+                <figcaption>Mountain Landscape</figcaption>
+            </figure>
+
+            <figure class="tall">
+                <img src="https://picsum.photos/id/1018/400/800"
+                    alt="Tall mountain surrounded by mist">
+                <figcaption>Misty Mountains</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://picsum.photos/id/1019/400/400"
+                    alt="Wooden jetty extending into a lake">
+                <figcaption>Peaceful Lake</figcaption>
+            </figure>
+
+            <figure class="wide">
+                <img src="https://picsum.photos/id/1036/800/400"
+                    alt="Forest landscape in winter">
+                <figcaption>Winter Forest</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://picsum.photos/id/1039/400/400"
+                    alt="Waterfall in a natural landscape">
+                <figcaption>Hidden Waterfall</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://picsum.photos/id/1043/400/400"
+                    alt="Beautiful evening sky">
+                <figcaption>Evening Sky</figcaption>
+            </figure>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Created by Anshika | CSS Grid Photo Gallery</p>
+    </footer>
+
+</body>
+
+</html>

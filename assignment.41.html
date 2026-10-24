@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A responsive website demonstrating CSS breakpoints and grid layouts.">
+    <title>Responsive Breakpoints Project</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fc;
+            color: #222;
+        }
+
+        header {
+            background-color: #1f3a93;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 1.25rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow-wrap: anywhere;
+        }
+
+        .card h2 {
+            margin-bottom: 0.5rem;
+            color: #1f3a93;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #ffe8cc;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+
+        .testing {
+            margin-top: 2rem;
+        }
+
+        .testing h2 {
+            margin-bottom: 0.75rem;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background-color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e8edff;
+        }
+
+        .testing-note {
+            margin-top: 0.75rem;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #1f3a93;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Breakpoint 1: tablets and small laptops */
+        @media (max-width: 1024px) {
+            .cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Breakpoint 2: large phones and smaller tablets */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            main {
+                padding: 1.25rem;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+
+        /* Breakpoint 3: small phones */
+        @media (max-width: 480px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            nav {
+                gap: 0.75rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Anshika's Website</div>
+
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main id="home">
+
+        <h1>Responsive Project</h1>
+
+        <p class="intro">
+            This project demonstrates responsive web design using CSS Grid,
+            media queries, and multiple screen-size breakpoints.
+        </p>
+
+        <section class="cards" id="projects">
+
+            <article class="card" id="home-card">
+                <h2>Home</h2>
+                <p>Welcome to my responsive website project.</p>
+            </article>
+
+            <article class="card" id="about">
+                <h2>About</h2>
+                <p>I am learning HTML, CSS, responsive layouts, and web development.</p>
+            </article>
+
+            <article class="card">
+                <h2>Projects</h2>
+                <p>My assignments help me practice and improve my coding skills.</p>
+            </article>
+
+            <article class="card" id="contact">
+                <h2>Contact</h2>
+                <p>Thank you for visiting my website.</p>
+            </article>
+
+        </section>
+
+        <span class="badge">
+            Responsive layout: 4 columns → 2 columns → 1 column
+        </span>
+
+        <section class="testing">
+            <h2>Responsive Testing Log</h2>
+
+            <p>
+                Use Chrome DevTools device toolbar to check the layout
+                at different viewport widths.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Device / Width</th>
+                            <th>Expected Layout</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Desktop — 1440px</td>
+                            <td>4 columns, horizontal header</td>
+                            <td>To be tested</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tablet — 820px</td>
+                            <td>2 columns, horizontal header</td>
+                            <td>To be tested</td>
+                        </tr>
+
+                        <tr>
+                            <td>Phone — 390px</td>
+                            <td>1 column, stacked header</td>
+                            <td>To be tested</td>
+                        </tr>
+
+                        <tr>
+                            <td>Small screen — 280px</td>
+                            <td>1 column, no page-level horizontal scroll</td>
+                            <td>To be tested</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="testing-note">
+                Update the results after testing each viewport in your browser.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Anshika | Responsive Breakpoints Project</p>
+    </footer>
+
+</body>
+
+</html>

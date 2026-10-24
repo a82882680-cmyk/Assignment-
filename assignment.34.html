@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive navbar and hero section using CSS Flexbox.">
+  <title>Navbar + Hero | Anshika</title>
+
+  <style>
+    :root {
+      --primary: #5b4bdb;
+      --secondary: #3f31b0;
+      --text: #1b263b;
+      --muted: #4a5568;
+      --white: #ffffff;
+      --background: #f4f5fc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* ---------- NAVIGATION BAR ---------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .logo {
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .links a {
+      color: var(--text);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .links a:hover {
+      color: var(--primary);
+    }
+
+    .links .cta {
+      padding: 0.6rem 1.1rem;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 6px;
+    }
+
+    .links .cta:hover {
+      background: var(--secondary);
+    }
+
+    #toggle {
+      display: none;
+    }
+
+    .burger {
+      display: none;
+      color: var(--primary);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+      max-width: 1200px;
+      min-height: 80vh;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .hero__text {
+      flex: 1;
+    }
+
+    .hero__text .tagline {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.4rem 0.8rem;
+      background: #eeeaff;
+      color: var(--primary);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero__text h1 {
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+    }
+
+    .hero__text p {
+      max-width: 48ch;
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .hero__btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn--primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn--primary:hover {
+      background: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    .btn--ghost {
+      color: var(--primary);
+    }
+
+    .btn--ghost:hover {
+      background: #eeeaff;
+    }
+
+    .hero__img {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero__img img {
+      display: block;
+      width: 100%;
+      max-width: 550px;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ---------- ABOUT SECTION ---------- */
+    .about {
+      padding: 3rem 1.5rem;
+      background: var(--background);
+      text-align: center;
+    }
+
+    .about h2 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .about p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ---------- RESPONSIVE DESIGN ---------- */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 1.25rem;
+      }
+
+      .burger {
+        display: block;
+      }
+
+      .links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.25rem;
+        background: var(--white);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      #toggle:checked ~ .links {
+        display: flex;
+      }
+
+      .links a {
+        display: block;
+        padding: 0.4rem;
+      }
+
+      .links .cta {
+        text-align: center;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 2rem;
+        min-height: auto;
+        padding: 2.5rem 1.25rem;
+        text-align: center;
+      }
+
+      .hero__text p {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hero__btns {
+        justify-content: center;
+      }
+
+      .hero__img {
+        width: 100%;
+      }
+
+      .hero__img img {
+        max-width: 450px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero__btns {
+        flex-direction: column;
+      }
+
+      .btn {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" aria-label="Main navigation">
+    <a href="#home" class="logo">Anshika</a>
+
+    <input type="checkbox" id="toggle">
+
+    <label for="toggle" class="burger" aria-label="Toggle navigation menu">
+      ☰
+    </label>
+
+    <ul class="links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a class="cta" href="#contact">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="hero" id="home">
+
+      <div class="hero__text">
+        <span class="tagline">Welcome to My Website</span>
+
+        <h1>Learn, Create and Build Your Future.</h1>
+
+        <p>
+          Hello! I am Anshika from Bareilly.
+          I am exploring web development and learning to create
+          beautiful, responsive and user-friendly websites using HTML and CSS.
+        </p>
+
+        <div class="hero__btns">
+          <a class="btn btn--primary" href="#portfolio">Explore Projects</a>
+          <a class="btn btn--ghost" href="#about">Learn More</a>
+        </div>
+      </div>
+
+      <div class="hero__img">
+        <img
+          src="https://picsum.photos/id/180/700/500"
+          alt="Laptop on a desk displaying a workspace"
+          width="700"
+          height="500">
+      </div>
+
+    </header>
+
+    <section class="about" id="about">
+      <h2>About Me</h2>
+      <p>
+        I am Anshika from Bareilly, learning how to build responsive
+        websites. My goal is to improve my technical skills through
+        practice and practical projects.
+      </p>
+    </section>
+
+    <section class="about" id="features">
+      <h2>Features</h2>
+      <p>
+        This website demonstrates Flexbox layouts, responsive navigation,
+        flexible content sections and mobile-friendly design.
+      </p>
+    </section>
+
+    <section class="about" id="portfolio">
+      <h2>My Portfolio</h2>
+      <p>
+        This section can showcase my web development assignments
+        and future projects.
+      </p>
+    </section>
+
+    <section class="about" id="contact">
+      <h2>Get in Touch</h2>
+      <p>
+        Thank you for visiting my website and exploring my work.
+      </p>
+    </section>
+  </main>
+
+</body>
+
+</html>

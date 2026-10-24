@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive product listing layout using CSS Flexbox and flex-wrap.">
+  <title>Product Listing | ShopEasy</title>
+
+  <style>
+    :root {
+      --primary: #5b4bdb;
+      --secondary: #3f31b0;
+      --accent: #ff6b35;
+      --background: #eef0f8;
+      --white: #ffffff;
+      --text: #333333;
+      --muted: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    /* ---------- HEADER ---------- */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.7rem;
+    }
+
+    .header p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- PAGE INTRODUCTION ---------- */
+    .intro {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    .intro h2 {
+      margin: 0 0 0.5rem;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* ---------- PRODUCT LIST ---------- */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* ---------- PRODUCT CARD ---------- */
+    .product {
+      flex: 1 1 240px;
+      max-width: 300px;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .product__body h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .product__body p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .product__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+
+    .price {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .product button {
+      border: none;
+      border-radius: 6px;
+      padding: 0.6rem 1rem;
+      background: var(--accent);
+      color: var(--white);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .product button:hover {
+      background: #e65322;
+    }
+
+    .product button:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    /* ---------- RESPONSIVE DESIGN ---------- */
+    @media (max-width: 600px) {
+      .header {
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .intro h2 {
+        font-size: 1.6rem;
+      }
+
+      .products {
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .product {
+        flex: 1 1 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>ShopEasy</h1>
+    <p>Find the right products for you</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Our Products</h2>
+      <p>Explore our collection of everyday essentials.</p>
+    </section>
+
+    <section class="products" aria-label="Product listing">
+
+      <article class="product">
+        <img
+          src="https://picsum.photos/id/1/400/300"
+          alt="Laptop on a desk"
+          loading="lazy">
+
+        <div class="product__body">
+          <h3>Laptop Pro 14</h3>
+          <p>A lightweight laptop suitable for study, work, and programming.</p>
+
+          <div class="product__footer">
+            <span class="price">₹64,999</span>
+            <button type="button">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <img
+          src="https://picsum.photos/id/3/400/300"
+          alt="Computer desk setup"
+          loading="lazy">
+
+        <div class="product__body">
+          <h3>Mechanical Keyboard</h3>
+          <p>Comfortable typing with responsive keys for everyday use.</p>
+
+          <div class="product__footer">
+            <span class="price">₹4,499</span>
+            <button type="button">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <img
+          src="https://picsum.photos/id/26/400/300"
+          alt="Watch beside a notebook"
+          loading="lazy">
+
+        <div class="product__body">
+          <h3>Smart Watch</h3>
+          <p>Keep track of your daily activity with a stylish smartwatch.</p>
+
+          <div class="product__footer">
+            <span class="price">₹3,299</span>
+            <button type="button">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <img
+          src="https://picsum.photos/id/250/400/300"
+          alt="Camera equipment"
+          loading="lazy">
+
+        <div class="product__body">
+          <h3>Digital Camera</h3>
+          <p>Capture memorable moments with clear and detailed photographs.</p>
+
+          <div class="product__footer">
+            <span class="price">₹42,000</span>
+            <button type="button">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <img
+          src="https://picsum.photos/id/21/400/300"
+          alt="Wireless headphones"
+          loading="lazy">
+
+        <div class="product__body">
+          <h3>Wireless Headphones</h3>
+          <p>Enjoy your favourite music with comfortable wireless audio.</p>
+
+          <div class="product__footer">
+            <span class="price">₹2,799</span>
+            <button type="button">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+</body>
+
+</html>

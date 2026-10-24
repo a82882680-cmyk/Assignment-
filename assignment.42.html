@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Responsive design audit with fixes applied.">
+
+    <title>Assignment 42 - Responsive Audit</title>
+
+    <style>
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 1rem;
+            background-color: #f4f6fb;
+            color: #222;
+        }
+
+        /* Fix 1: Responsive container instead of fixed width */
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Fix 2: Responsive heading */
+        h1 {
+            font-size: clamp(1.6rem, 5vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            margin-top: 0.75rem;
+        }
+
+        /* Fix 3: Navigation wraps on smaller screens */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Fix 4: Comfortable tap targets */
+        nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0.75rem 1rem;
+            background-color: #1f3a93;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #142766;
+        }
+
+        /* Fix 5: Responsive grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 240px), 1fr)
+            );
+            gap: 1rem;
+        }
+
+        /* Card styling */
+        .card {
+            min-width: 0;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Fix 6: Images stay inside their cards */
+        .card img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 8 / 5;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Fix 7: Wide table scrolls inside its own container */
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1f3a93;
+            color: white;
+        }
+
+        /* Fix 8: Small-screen spacing */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.75rem;
+            }
+
+            .card {
+                padding: 0.75rem;
+            }
+
+            nav a {
+                flex: 1 1 auto;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Responsive Audit - Fixed</h1>
+
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main id="home">
+            <section class="grid" aria-label="Featured cards">
+
+                <article class="card" id="services">
+                    <img
+                        src="https://picsum.photos/id/1011/800/500"
+                        alt="Boat on a quiet lake"
+                        loading="lazy"
+                    >
+                    <h2>Card One</h2>
+                    <p>A responsive card with an image that fits its container.</p>
+                </article>
+
+                <article class="card" id="pricing">
+                    <img
+                        src="https://picsum.photos/id/1015/800/500"
+                        alt="Valley with a river"
+                        loading="lazy"
+                    >
+                    <h2>Card Two</h2>
+                    <p>The grid automatically adjusts to the available screen width.</p>
+                </article>
+
+                <article class="card" id="blog">
+                    <img
+                        src="https://picsum.photos/id/1016/800/500"
+                        alt="Rocky canyon at dusk"
+                        loading="lazy"
+                    >
+                    <h2>Card Three</h2>
+                    <p>Images and text remain inside their cards on smaller screens.</p>
+                </article>
+
+            </section>
+
+            <section class="table-wrap" aria-label="Plan comparison">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Storage</th>
+                            <th>Users</th>
+                            <th>Support</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Basic</td>
+                            <td>10 GB</td>
+                            <td>1</td>
+                            <td>Email</td>
+                            <td>₹0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Pro</td>
+                            <td>100 GB</td>
+                            <td>5</td>
+                            <td>Chat</td>
+                            <td>₹499</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer id="contact" style="margin-top: 1.5rem;">
+            <p>&copy; 2026 Responsive Audit Project</p>
+        </footer>
+
+    </div>
+</body>
+</html>
